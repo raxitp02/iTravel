@@ -1,0 +1,7 @@
+{
+  "name": "iTravel",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
