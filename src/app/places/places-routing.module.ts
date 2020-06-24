@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PlacesPage } from './places.page';
+import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -14,11 +15,13 @@ const routes: Routes = [
       // },
       {
         path: 'discover',
-        loadChildren: () => import('../places/discover/discover.module').then(m => m.DiscoverPageModule)
+        loadChildren: () => import('../places/discover/discover.module').then(m => m.DiscoverPageModule),
+        canLoad: [AuthGuard]
       },
       {
         path: 'offers',
-        loadChildren: () => import('../places/offers/offers.module').then(m => m.OffersPageModule)
+        loadChildren: () => import('../places/offers/offers.module').then(m => m.OffersPageModule),
+        canLoad: [AuthGuard]
       },
       {
         path: '',
